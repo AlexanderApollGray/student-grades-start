@@ -8,7 +8,7 @@ let grades = [60, 50, 34, 70, 80, 25, 40, 65, 90, 83, 35, 42, 20, 68];
 let maxGrade = 100; // grade values should be b/t 0 and max
 
 // Display Data
-drawArray();
+drawArray(grades, maxGrade);
 
 // Main Menu & Go Button
 document.getElementById("go-btn").addEventListener("click", mainMenu);
@@ -41,7 +41,7 @@ function mainMenu() {
   }
 
   // Redraw array to show any changes
-  drawArray();
+  drawArray(grades, maxGrade);
 }
 
 // ******************************************************
@@ -103,11 +103,11 @@ function removeBelow50() {
 
 // DRAW ARRAY FUNCTION
 // Function to draw current state of grades array
-function drawArray() {
+function drawArray(array, maxVal) {
   let outputStr = "";
   let divHeight;
-  for (let i = 0; i < grades.length; i++) {
-    divHeight = (grades[i] / maxGrade) * 600; // Scale grades to fit in array visualizer container
+  for (let i = 0; i < array.length; i++) {
+    divHeight = (array[i] / maxVal) * 600; // Scale grades to fit in array visualizer container
     outputStr += `<div style="height:${divHeight}px"></div>`;
   }
   document.getElementById("container").innerHTML = outputStr;
