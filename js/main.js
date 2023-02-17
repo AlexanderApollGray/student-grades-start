@@ -28,6 +28,8 @@ function mainMenu() {
     addRandomGrade();
   } else if (selection === "removeLast") {
     removeLastGrade();
+  } else if (selection === "stats") {
+    displayStats();
   } else if (selection === "count50") {
     countBelow50();
   } else if (selection === "change50") {
@@ -70,6 +72,12 @@ function addRandomGrade() {
 function removeLastGrade() {
   // Remove the last grade.
   outputEl.innerHTML = "Remove the last grade";
+}
+
+function displayStats() {
+  // Determine the maximum grade, minimum grade and average grade.
+  // Output the results.
+  outputEl.innerHTML = "Stats: max, min, average";
 }
 
 function countBelow50() {
