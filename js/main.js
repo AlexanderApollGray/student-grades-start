@@ -50,36 +50,41 @@ function mainMenu() {
 // MENU SELECTION FUNCTIONS
 // ******************************************************
 function firstTo40() {
-  // Set the grade of the first student to 40.
+  grades[0] = 40;
   outputEl.innerHTML = "First grade to 40";
 }
 
 function lastTo50() {
-  // Set the grade of the last student to 50.
-  // Your code should work for any size of array.
+  grades[grades.length - 1] = 50;
   outputEl.innerHTML = "Last grade to 50";
 }
 
 function randomTo100() {
-  // Set the grade of a random student to 100.
-  // Your code should work for any size of array.
+  grades[randomInt(0, grades.length)] = 100;
   outputEl.innerHTML = "Random grade to 100";
 }
 
 function addRandomGrade() {
-  // Add a random grade between 0 and 100 to the end of the array.
+  grades[grades.length] = randomInt(0, 100);
   outputEl.innerHTML = "Add random grade";
 }
 
 function removeLastGrade() {
-  // Remove the last grade.
+  grades.pop();
   outputEl.innerHTML = "Remove the last grade";
 }
 
 function displayStats() {
   // Determine the maximum grade, minimum grade and average grade.
+  let max = Math.max(...grades);
+  let min = Math.min(...grades);
+  let total = 0;
+  for (let i = 0; i < grades.length; i++) {
+    total += grades[i];
+  }
+  let average = total / grades.length;
   // Output the results.
-  outputEl.innerHTML = "Stats: max, min, average";
+  outputEl.innerHTML = `Maximum: ${max}, Minimum: ${min}, Average: ${average}`;
 }
 
 function countBelow50() {
