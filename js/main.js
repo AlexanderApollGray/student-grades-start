@@ -75,7 +75,6 @@ function removeLastGrade() {
 }
 
 function displayStats() {
-  // Determine the maximum grade, minimum grade and average grade.
   let max = Math.max(...grades);
   let min = Math.min(...grades);
   let total = 0;
@@ -83,32 +82,55 @@ function displayStats() {
     total += grades[i];
   }
   let average = total / grades.length;
-  // Output the results.
   outputEl.innerHTML = `Maximum: ${max}, Minimum: ${min}, Average: ${average}`;
 }
 
 function countBelow50() {
-  // Count how many grades are below 50.  Output the result.
-  outputEl.innerHTML = "Count grades below 50";
+  let below50 = 0;
+
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      below50++;
+    }
+  }
+  if (below50 === 1) {
+    outputEl.innerHTML = `There is 1 grade below 50`;
+  } else {
+    outputEl.innerHTML = `There are ${below50} grades below 50`;
+  }
 }
 
 function lowGradesTo50() {
-  // Change all grades that are below 50 to be equal to 50.
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      grades[i] = 50;
+    }
+  }
   outputEl.innerHTML = "Change low grades to 50";
 }
 
 function increaseGradesBy10() {
-  // Increase each grade by 10%.
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] += 10;
+  }
   outputEl.innerHTML = "Increase all grades by 10%";
 }
 
 function decreaseGradesBy10() {
-  // Decrease each grade by 10%.
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] -= 10;
+  }
   outputEl.innerHTML = "Decrease all grades by 10%";
 }
 
-function removeBelow50() {
-  // Remove ALL grades that are below 50.
+function removeBelow50() { // Oli pls why does it not get rid of all of them?
+  console.log(grades);
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      grades.splice(i, 1);
+      console.log(i);
+    }
+  }
   outputEl.innerHTML = "Remove all grades below 50";
 }
 
