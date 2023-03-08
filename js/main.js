@@ -123,15 +123,16 @@ function decreaseGradesBy10() {
   outputEl.innerHTML = "Decrease all grades by 10%";
 }
 
-function removeBelow50() { // Oli please why does it not get rid of all of them? 
-  // Why do i need to press the button twice?
-  console.log(grades);
+function removeBelow50() {
+  console.log(grades)
   for (let i = 0; i < grades.length; i++) {
     if (grades[i] < 50) {
+      console.log('below')
       grades.splice(i, 1);
-      console.log(i);
+      i--;
     }
   }
+  console.log(grades)
   outputEl.innerHTML = "Remove all grades below 50";
 }
 
